@@ -10,9 +10,10 @@ vulnerabilities to production — and runs **entirely on your machine**.
 Ask your agent _"is this safe to ship?"_ and get a Launch Readiness score with a fix for
 every finding.
 
-Built by [Opzyai](https://www.opzyai.com?utm_source=npm). For deep, server-side scanning of
-repositories you own (SAST, dependency CVEs, git-history secrets) and fixes your AI editor
-applies for you, see [the hosted Pro server](https://www.opzyai.com/mcp?utm_source=npm).
+Built by [Opzyai](https://www.opzyai.com?utm_source=npm) — source at
+[thfothijn/opzyai-mcp](https://github.com/thfothijn/opzyai-mcp). For deep, server-side
+scanning of repositories you own (SAST, dependency CVEs, git-history secrets) and fixes
+your AI editor applies for you, see [the hosted Pro server](https://www.opzyai.com/mcp?utm_source=npm).
 
 ## What it checks
 
