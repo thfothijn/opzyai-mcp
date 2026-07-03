@@ -5,6 +5,8 @@ name: Publish to npm
 # (npmjs.com > package > Settings > Trusted Publisher).
 on:
   workflow_dispatch:
+  push:
+    tags: ['v*']
 
 permissions:
   contents: read
