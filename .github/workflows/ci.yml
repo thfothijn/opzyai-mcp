@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20, 22]
+        # pnpm 11 needs Node >= 22.13 to run; the published CLI itself still
+        # targets/supports Node >= 20 (tsup target node20, no pnpm at runtime).
+        node-version: [22, 24]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
