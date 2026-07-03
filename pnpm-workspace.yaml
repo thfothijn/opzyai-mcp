@@ -1,0 +1,12 @@
+packages:
+  - packages/*
+
+# esbuild builds its native binary (required by tsup + vitest).
+allowBuilds:
+  esbuild: true
+onlyBuiltDependencies:
+  - esbuild
+
+# esbuild >=0.28.1 patches GHSA-gv7w-rqvm-qjhr (dev-server SSRF) across all transitive uses.
+overrides:
+  esbuild: ">=0.28.1"

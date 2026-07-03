@@ -1,0 +1,16 @@
+{
+  "name": "@appsec/detectors",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "lint": "eslint ."
+  },
+  "dependencies": { "@appsec/core": "workspace:*" },
+  "devDependencies": { "@types/node": "^20.16.10", "typescript": "^5.6.3", "vitest": "^3.2.6" }
+}

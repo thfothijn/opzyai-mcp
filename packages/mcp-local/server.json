@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.opzyai/mcp",
+  "title": "Opzyai Security Check",
+  "description": "Local-first security check for AI coding agents — finds hardcoded secrets, exposed .env files, git-history leaks and vulnerable dependencies, entirely on your machine.",
+  "version": "0.1.2",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@opzyai/mcp",
+      "version": "0.1.2",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

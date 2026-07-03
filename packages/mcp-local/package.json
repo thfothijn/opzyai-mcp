@@ -1,0 +1,36 @@
+{
+  "name": "@opzyai/mcp",
+  "version": "0.1.2",
+  "mcpName": "com.opzyai/mcp",
+  "private": false,
+  "type": "module",
+  "description": "Local-first security check MCP server for AI coding agents — finds hardcoded secrets, exposed .env files, secrets in git history, and vulnerable dependencies in your workspace, entirely on your machine.",
+  "keywords": ["mcp", "model-context-protocol", "security", "secrets", "sast", "sca", "appsec", "cli", "claude", "cursor", "opzyai"],
+  "license": "MIT",
+  "author": "Opzyai <hello@opzyai.com>",
+  "homepage": "https://www.opzyai.com",
+  "repository": { "type": "git", "url": "git+https://github.com/thfothijn/opzyai-mcp.git", "directory": "packages/mcp-local" },
+  "bugs": { "url": "https://github.com/thfothijn/opzyai-mcp/issues" },
+  "bin": { "opzyai-mcp": "./dist/cli.js" },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@appsec/core": "workspace:*",
+    "@appsec/detectors": "workspace:*",
+    "@types/node": "^20.16.10",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.6"
+  }
+}

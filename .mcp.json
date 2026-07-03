@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "opzyai": {
+      "command": "npx",
+      "args": ["-y", "@opzyai/mcp"]
+    },
+    "opzyai-pro": {
+      "type": "http",
+      "url": "https://www.opzyai.com/api/mcp/pro/mcp",
+      "headers": {
+        "Authorization": "Bearer ${OPZYAI_TOKEN}"
+      }
+    }
+  }
+}
