@@ -1,0 +1,29 @@
+name: Publish to npm
+
+# npm Trusted Publishing (OIDC): no tokens, no 2FA prompts. The npm package
+# @opzyai/mcp must have this repo + workflow configured as a Trusted Publisher
+# (npmjs.com > package > Settings > Trusted Publisher).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # OIDC token for npm trusted publishing
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm publish --access public --no-git-checks
+        working-directory: packages/mcp-local
