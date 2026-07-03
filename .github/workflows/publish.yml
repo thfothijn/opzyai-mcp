@@ -25,5 +25,12 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
-      - run: pnpm publish --access public --no-git-checks
+      # npm CLI (>= 11.5) does the OIDC trusted-publishing exchange natively;
+      # pnpm's exchange 404s against npm's endpoint. devDependencies use
+      # workspace:* specifiers npm can't parse - strip them (irrelevant to
+      # consumers; the tarball is already built by the pnpm steps above).
+      - name: Strip workspace devDependencies for npm publish
+        run: node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json','utf8'));delete p.devDependencies;fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\n')"
+        working-directory: packages/mcp-local
+      - run: npm publish --access public
         working-directory: packages/mcp-local
